@@ -1,0 +1,126 @@
+/* body */
+body {
+    padding: 0;
+    margin: 0;
+    font-family: url("assets/fonts/Ubuntu/Ubuntu-Medium.ttf");
+}
+hr {
+    background-color: #eeeeee;
+    border: none;
+    height: 1px;
+}
+/*navbar */
+.nav{
+    display: flex;
+    justify-content: space-between;
+    height: 5vh;
+    padding: 2em;
+    border: 1px solid #eeeeee;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.05);
+}
+.brand {
+    display: flex;
+}
+.shape {
+    margin-left: -50%;
+    margin-bottom: 20%;
+    color: #ffffff;
+    z-index: 1;
+    background: none;
+}
+.user{
+    display: flex;
+    flex-direction: column;
+    margin-top: -7%;
+}
+.user p{
+    margin-top: -10%;
+    color: #aaaaaa;
+}
+input {
+    height: 4vh;
+    width: 40vw;
+    border: 1px solid #dddddd;
+}
+::placeholder{
+    color: #999999;
+    padding-left: 1em;
+}
+.search-image {
+    position: relative;
+    left: -6.4%;
+    top: 32%;
+    background-color: #f9f9fb;
+    border: 1px solid #dddddd;
+    height: 2vh;
+    padding: .55em;
+}
+ul{
+    display: flex;
+    margin-top: -1%;
+}
+li {
+    list-style-type: none;
+    padding: .8em;
+}
+.shape, .count {
+    padding-top: 1em;
+}
+/*sidebar */
+.sidebar{
+    position: sticky;
+    left: 0;
+    width: 20vw;
+    box-shadow: -10px 0px 40px rgba(0, 0, 0, 0.1);
+    z-index: -1;
+}
+.sub-menu{
+    padding: 1.5em;
+}
+.title{
+    font-weight: bold;
+}
+.active {
+    color: #65c100;
+}
+/*Featured books section */
+h3 {
+    line-height: 16px;
+    letter-spacing: 3px;
+    font-weight: normal;
+    font-size: 14px;
+}
+.carousel {
+    width: 75vw;
+    margin-left: 23%;
+    margin-top: -58%;
+}
+/*Recently Added Books */
+section {
+    width: 75vw;
+    margin-left: 23%;
+}
+.recently-added {
+    display: flex;
+}
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    width: 30vw;
+    padding: .5em;
+}
+.info {
+    /* display: flex; */
+    margin-left: 50%;
+    margin-top: -50%;
+}
+.available{
+    color: #65c100;
+}
+.borrowed {
+    color: #d0011b;
+}
+/* All Books available */
+.all-books {
+    display: flex;
+}
