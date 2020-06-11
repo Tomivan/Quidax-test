@@ -12,21 +12,29 @@ hr {
 /*navbar */
 .nav{
     display: flex;
+    position: sticky;
+    top: 0;
     justify-content: space-between;
     height: 5vh;
-    padding: 2em;
+    width: 96.5vw;
+    padding: 1.5em;
     border: 1px solid #eeeeee;
     box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.05);
+    opacity: 0.97;
+}
+.combined {
+    display: none;
+    width: 5vw;
+}
+.arrow {
+    display: none;
+}
+.logo {
+    height: 5vh;
+    padding: .5em;
 }
 .brand {
     display: flex;
-}
-.shape {
-    margin-left: -50%;
-    margin-bottom: 20%;
-    color: #ffffff;
-    z-index: 1;
-    background: none;
 }
 .user{
     display: flex;
@@ -68,20 +76,37 @@ li {
 }
 /*sidebar */
 .sidebar{
-    position: sticky;
-    left: 0;
+    position: fixed;
     width: 20vw;
     box-shadow: -10px 0px 40px rgba(0, 0, 0, 0.1);
-    z-index: -1;
 }
 .sub-menu{
-    padding: 1.5em;
+    padding: .5em 1em;
 }
 .title{
     font-weight: bold;
 }
 .active {
     color: #65c100;
+}
+.number {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -7%;
+}
+.figure {
+    color: #aaaaaa;
+}
+.active-number {
+    background-color: #65c100;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    width: 6%;
+    padding-left: .4em;
+}
+.up {
+    margin-top: -2%;
 }
 /*Featured books section */
 h3 {
@@ -90,29 +115,79 @@ h3 {
     font-weight: normal;
     font-size: 14px;
 }
-.carousel {
+.featured-books {
     width: 75vw;
-    margin-left: 23%;
-    margin-top: -58%;
+    margin-left: 22%;
+    margin-bottom: 3%;
 }
+.carousel-cell {
+    width: 18.5%;
+    margin-right: 10px;
+    counter-increment: carousel-cell;
+  }
+  .carousel-cell:before {
+    display: block;
+    text-align: center;
+    content: counter(carousel-cell);
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #000000;
+  }
+  .details-1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
 /*Recently Added Books */
 section {
     width: 75vw;
-    margin-left: 23%;
+    margin-left: 22%;
 }
 .recently-added {
     display: flex;
+    flex-wrap: wrap;
 }
 .card {
     display: flex;
-    flex-wrap: wrap;
-    width: 30vw;
-    padding: .5em;
+    width: 22.5vw;
+    height: 24vh;
+    padding: 1em;
+}
+.ratings-count {
+    display: flex;
+}
+.ratings {
+    margin-top: -10%;
+}
+.notification {
+    display: flex;
+    margin-top: 3%;
+}
+.img {
+    height: 2vh;
+    margin-left: 10%; 
+}
+.img ~ p{
+    margin-left: -23%;
+    padding: .3em;
+}
+.recently-added .card:hover {
+    box-shadow: 0px 0px 60px rgba(0,0,0,0.15);
 }
 .info {
-    /* display: flex; */
-    margin-left: 50%;
-    margin-top: -50%;
+    padding-left: .5em;
 }
 .available{
     color: #65c100;
@@ -123,4 +198,93 @@ section {
 /* All Books available */
 .all-books {
     display: flex;
+    flex-wrap: wrap;
 }
+
+/* media queries */
+@media only screen and (min-width: 320px) and (max-width: 414px) {
+    .nav {
+        position: fixed;
+    }
+    .combined {
+        display: block;
+    }
+    .sidebar, .user, #search {
+        display: none;
+    }
+    .sidebar{
+        position: fixed;
+        width: 0;
+        box-shadow: -10px 0px 40px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transition: 0.5s;
+        overflow-x: hidden;
+    }
+    .search-image{
+        background: none;
+        border: none;
+        margin-left: 15%;
+        height: 3.5vh;
+    }
+    li {
+        padding: .5em;
+    }
+    .image{
+        margin-left: 30%;
+    }
+    .carousel{
+        margin-top: 40%;
+        width: 90vw;
+        margin-left: -23%;
+        margin-bottom: 15%;
+    }
+    .featured-books h3 {
+        display: none;
+    }
+    .recently-added, .all-books {
+        display: flex;
+        flex-direction: column;
+    }
+    section {
+        margin-left: 7%;
+    }
+    .card {
+        margin-bottom: 30%;
+        margin-left: -5%;
+        width: 90vw;
+    }
+}
+/*screen size with width above 768px */
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .search-image{ 
+        position: relative;
+        top: -83%;
+        left: 87%;
+    }
+    .card{
+        width: 33vw;
+    }
+    .user p {
+        margin-top: -15%;
+}
+}
+ @media only screen and (min-width: 1024px) and (max-width: 1030px) {
+     .search-image{
+         position: relative;
+         top: 34%;
+         left: -13%;
+         height: 2.7vh;
+     }
+     .user, ul{
+         margin-top: 2%;
+     }
+     .card{
+         width: 33vw;
+         height: 20vh;
+     }
+     .img ~ p {
+         margin-top: 25%;
+     }
+     
+ }

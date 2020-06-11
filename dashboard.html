@@ -5,23 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quidax Book Club</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
     <script src="dashboard.js"></script>
 </head>
 <body>
     <!-- Navigation Bar-->
     <nav class="nav">
         <div class="brand">
-            <div class="image">
-                <img src="assets//images/Ellipse.jpg">
-                <img src="assets/images/shape1.jpg" class="shape">
-            </div>
+            <img src="assets/images/Combined Shape.png" class="combined" onclick="showSidebar()">
+           <img src="assets/images/logo.png" class="logo">
             <div class="user">
                 <h2>Quidax Book Club</h2>
                 <p>Admin</p>
             </div>
         </div>
         <div class="search">
-            <input type="text" name="search"/ placeholder="Search Books, genres, authors, etc ...">
+            <input type="text" id="search" onkeyup="search()" placeholder="Search Books, genres, authors, etc ...">
             <img src="assets/images/search.png" class="search-image">
         </div>
         <ul>
@@ -33,47 +34,87 @@
     <!--Sidebar-->
     <aside class="sidebar">
         <div class="sub-menu">
+            <img src="assets/images/arrow.png" class="arrow" onclick="closeSidebar()">
             <p class="title active">Home</p>
             <p>Profile</p>
-            <p>Notifications</p>
+            <div class="number">
+                <p>Notifications</p><p class="active-number figure">3</p>
+            </div>
         </div>
         <hr />
         <div class="sub-menu">
             <p class="title">Explore</p>
-            <p>Books</p>
-            <p>Genres</p>
-            <p>Authors</p>
+            <div class="number">
+                <p>Books</p><p class="figure">273</p>
+            </div>
+            <div class="number">
+                <p>Genres</p><p class="figure">42</p>
+            </div>
+            <div class="number">
+                <p>Authors</p><p class="figure">106</p>
+            </div>
         </div>
         <hr />
         <div class="sub-menu">
             <p class="title">My Books</p>
-            <p>Queued</p>
-            <p>Borrowed</p>
-            <p>Favourites</p>
-            <p>History</p>
+            <div class="number">
+                <p>Queued</p><p class="figure">3</p>
+            </div>
+            <div class="number">
+                <p>Borrowed</p><p class="figure">0</p>
+            </div>
+            <div class="number">
+                <p>Favourites</p><p class="figure">19</p>
+            </div>
+            <p class="up">History</p>
         </div>
         <hr />
         <div class="sub-menu">
             <p class="title">Admin</p>
-            <p>Book Requests</p>
-            <p>Members</p>
-            <p>Library Settings</p>
+            <div class="number">
+                <p>Book Requests</p><p class="active-number figure">2</p>
+            </div>
+            <div class="number">
+                <p>Members</p><p class="figure">34</p>
+            </div>
+            <p class="up">Library Settings</p>
         </div>
     </aside>
     <!--Featured Books-->
-    <main class="carousel">
+    <main class="featured-books section">
         <h3>FEATURED BOOKS</h3>
         <hr />
-        <div class="featured-books">
-            <img src="assets/images/effective engineer.png" class="carousel-image">
-            <img src="assets/images/built to last.png" class="carousel-image">
-            <img src="assets/images/the lean startup.png" class="carousel-image">
-            <img src="assets/images/effective python.png" class="carousel-image">
-            <img src="assets/images/big magic.png" class="carousel-image">
+        <div class="carousel" data-flickity='{"cellAlign": "left", "contain": true, "wrapAround": true}'>
+            <img src="assets/images/effective engineer.png" class="carousel-cell">
+            <img src="assets/images/built to last.png" class="carousel-cell">
+            <img src="assets/images/the lean startup.png" class="carousel-cell">
+            <img src="assets/images/effective python.png" class="carousel-cell">
+            <img src="assets/images/big magic.png" class="carousel-cell">
+        </div>
+        <div class="overlay">
+            <div class="details-1">
+                <p class="available">Available</p>
+                <p class="title">The Effective engineer</p>
+                <p>Edmund Lau - 2009</p>
+                <p>Motivational</p>
+            </div>
+            <div class="ratings-count">
+                <div class="ratings">
+                    <p>Ratings: 4.0</p>
+                    <div class="stars">
+                        <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/black.png">
+                    </div>
+                </div>
+                <img src="assets/images/divider.png" class="divider">
+                <div class="notification">
+                    <img src="assets/images/people.png" class="img"><p>31</p>
+                    <img src="assets/images/love.png" class="img"><p>29</p>
+                </div>
+            </div>
         </div>
     </main>
     <!--Recently added books-->
-    <section>
+    <section class="section">
         <h3>RECENTLY ADDED</h3>
         <hr />
         <div class="recently-added">
@@ -86,8 +127,18 @@
                         <p>Edmund Lau - 2009</p>
                         <p>Motivational</p>
                     </div>
-                    <div class="ratings">
-                        <p>Ratings: 4.0</p>
+                    <div class="ratings-count">
+                        <div class="ratings">
+                            <p>Ratings: 4.0</p>
+                            <div class="stars">
+                                <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/black.png">
+                            </div>
+                        </div>
+                        <img src="assets/images/divider.png" class="divider">
+                        <div class="notification">
+                            <img src="assets/images/people.png" class="img"><p>31</p>
+                            <img src="assets/images/love.png" class="img"><p>29</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -100,8 +151,18 @@
                         <p>Jim Collins, Jim I.porras - 2001</p>
                         <p>Business, Entrepreneurship</p>
                     </div>
-                    <div class="ratings">
-                        <p>Ratings: 4.0</p>
+                    <div class="ratings-count">
+                        <div class="ratings">
+                            <p>Ratings: 4.0</p>
+                            <div class="stars">
+                                <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/black.png">
+                            </div>
+                        </div>
+                        <img src="assets/images/divider.png" class="divider">
+                        <div class="notification">
+                            <img src="assets/images/people.png" class="img"><p>31</p>
+                            <img src="assets/images/love.png" class="img"><p>29</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -114,8 +175,18 @@
                         <p>Eric Leis - 2005</p>
                         <p>Motivational</p>
                     </div>
-                    <div class="ratings">
-                        <p>Ratings: 4.0</p>
+                    <div class="ratings-count">
+                        <div class="ratings">
+                            <p>Ratings: 4.0</p>
+                            <div class="stars">
+                                <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/black.png">
+                            </div>
+                        </div>
+                        <img src="assets/images/divider.png" class="divider">
+                        <div class="notification">
+                            <img src="assets/images/people.png" class="img"><p>31</p>
+                            <img src="assets/images/love.png" class="img"><p>29</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -124,12 +195,22 @@
                <div class="info">
                 <div class="details">
                     <p class="available">Available</p>
-                    <p class="title">The Effective engineer</p>
+                    <p class="title">Effective python</p>
                     <p>Diomodis Spinelli</p>
                     <p>Motivational</p>
                 </div>
-                <div class="ratings">
-                    <p>Ratings: 4.0</p>
+                <div class="ratings-count">
+                    <div class="ratings">
+                        <p>Ratings: 4.0</p>
+                        <div class="stars">
+                            <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/black.png">
+                        </div>
+                    </div>
+                    <img src="assets/images/divider.png" class="divider">
+                    <div class="notification">
+                        <img src="assets/images/people.png" class="img"><p>31</p>
+                        <img src="assets/images/love.png" class="img"><p>29</p>
+                    </div>
                 </div>
                </div>
             </div>
@@ -142,136 +223,266 @@
                         <p>Elizabeth Gilbert - 2014</p>
                         <p>Motivational</p>
                     </div>
-                    <div class="ratings">
-                        <p>Ratings: 4.0</p>
+                    <div class="ratings-count">
+                        <div class="ratings">
+                            <p>Ratings: 4.0</p>
+                            <div class="stars">
+                                <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/black.png">
+                            </div>
+                        </div>
+                        <img src="assets/images/divider.png" class="divider">
+                        <div class="notification">
+                            <img src="assets/images/people.png" class="img"><p>31</p>
+                            <img src="assets/images/love.png" class="img"><p>29</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!--All books-->
-    <section>
+    <section class="section">
         <h3>ALL BOOKS</h3>
         <hr />
         <div class="all-books">
             <div class="card">
                 <img src="assets/images/effective engineer.png">
+               <div class="info">
                 <div class="details">
                     <p class="available">Available</p>
                     <p class="title">The Effective engineer</p>
                     <p>Edmund Lau - 2009</p>
                     <p>Motivational</p>
                 </div>
-                <div class="ratings">
-                    <p>Ratings: 4.0</p>
+                <div class="ratings-count">
+                    <div class="ratings">
+                        <p>Ratings: 4.0</p>
+                        <div class="stars">
+                            <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/black.png">
+                        </div>
+                    </div>
+                    <img src="assets/images/divider.png" class="divider">
+                    <div class="notification">
+                        <img src="assets/images/people.png" class="img"><p>31</p>
+                        <img src="assets/images/love.png" class="img"><p>29</p>
+                    </div>
                 </div>
+               </div>
             </div>
             <div class="card">
                 <img src="assets/images/built to last.png">
+               <div class="info">
                 <div class="details">
                     <p class="borrowed">Borrowed Out</p>
                     <p class="title">Built to last</p>
                     <p>Jim Collins, Jim I.porras - 2001</p>
                     <p>Business, Entrepreneurship</p>
                 </div>
-                <div class="ratings">
-                    <p>Ratings: 4.0</p>
+                <div class="ratings-count">
+                    <div class="ratings">
+                        <p>Ratings: 4.0</p>
+                        <div class="stars">
+                            <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/black.png">
+                        </div>
+                    </div>
+                    <img src="assets/images/divider.png" class="divider">
+                    <div class="notification">
+                        <img src="assets/images/people.png" class="img"><p>31</p>
+                        <img src="assets/images/love.png" class="img"><p>29</p>
+                    </div>
                 </div>
+               </div>
             </div>
             <div class="card">
                 <img src="assets/images/the lean startup.png">
-                <div class="details">
-                    <p class="available">Available</p>
-                    <p class="title">The Lean Startup</p>
-                    <p>Eric Leis - 2005</p>
-                    <p>Motivational</p>
-                </div>
-                <div class="ratings">
-                    <p>Ratings: 4.0</p>
+                <div class="info">
+                    <div class="details">
+                        <p class="available">Available</p>
+                        <p class="title">The Lean Startup</p>
+                        <p>Eric Leis - 2005</p>
+                        <p>Motivational</p>
+                    </div>
+                    <div class="ratings-count">
+                        <div class="ratings">
+                            <p>Ratings: 4.0</p>
+                            <div class="stars">
+                                <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/black.png">
+                            </div>
+                        </div>
+                        <img src="assets/images/divider.png" class="divider">
+                        <div class="notification">
+                            <img src="assets/images/people.png" class="img"><p>31</p>
+                            <img src="assets/images/love.png" class="img"><p>29</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="card">
                 <img src="assets/images/effective python.png">
-                <div class="details">
-                    <p class="available">Available</p>
-                    <p class="title">The Effective engineer</p>
-                    <p>Diomodis Spinelli</p>
-                    <p>Motivational</p>
-                </div>
-                <div class="ratings">
-                    <p>Ratings: 4.0</p>
+                <div class="info">
+                    <div class="details">
+                        <p class="available">Available</p>
+                        <p class="title">Effective python</p>
+                        <p>Diomodis Spinelli</p>
+                        <p>Motivational</p>
+                    </div>
+                    <div class="ratings-count">
+                        <div class="ratings">
+                            <p>Ratings: 4.0</p>
+                            <div class="stars">
+                                <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/black.png">
+                            </div>
+                        </div>
+                        <img src="assets/images/divider.png" class="divider">
+                        <div class="notification">
+                            <img src="assets/images/people.png" class="img"><p>31</p>
+                            <img src="assets/images/love.png" class="img"><p>29</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="card">
                 <img src="assets/images/big magic.png">
-                <div class="details">
-                    <p class="available"> Available</p>
-                    <p class="title">Big magic</p>
-                    <p>Elizabeth Gilbert - 2014</p>
-                    <p>Motivational</p>
-                </div>
-                <div class="ratings">
-                    <p>Ratings: 4.0</p>
+                <div class="info">
+                    <div class="details">
+                        <p class="available"> Available</p>
+                        <p class="title">Big magic</p>
+                        <p>Elizabeth Gilbert - 2014</p>
+                        <p>Motivational</p>
+                    </div>
+                    <div class="ratings-count">
+                        <div class="ratings">
+                            <p>Ratings: 4.0</p>
+                            <div class="stars">
+                                <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/black.png">
+                            </div>
+                        </div>
+                        <img src="assets/images/divider.png" class="divider">
+                        <div class="notification">
+                            <img src="assets/images/people.png" class="img"><p>31</p>
+                            <img src="assets/images/love.png" class="img"><p>29</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="card">
                 <img src="assets/images/effective engineer.png">
-                <div class="details">
-                    <p class="available">Available</p>
-                    <p class="title">The Effective engineer</p>
-                    <p>Edmund Lau - 2009</p>
-                    <p>Motivational</p>
-                </div>
-                <div class="ratings">
-                    <p>Ratings: 4.0</p>
+                <div class="info">
+                    <div class="details">
+                        <p class="available">Available</p>
+                        <p class="title">The Effective engineer</p>
+                        <p>Edmund Lau - 2009</p>
+                        <p>Motivational</p>
+                    </div>
+                    <div class="ratings-count">
+                        <div class="ratings">
+                            <p>Ratings: 4.0</p>
+                            <div class="stars">
+                                <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/black.png">
+                            </div>
+                        </div>
+                        <img src="assets/images/divider.png" class="divider">
+                        <div class="notification">
+                            <img src="assets/images/people.png" class="img"><p>31</p>
+                            <img src="assets/images/love.png" class="img"><p>29</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="card">
                 <img src="assets/images/built to last.png">
-                <div class="details">
-                    <p class="borrowed">Borrowed Out</p>
-                    <p class="title">Built to last</p>
-                    <p>Jim Collins, Jim I.porras - 2001</p>
-                    <p>Business, Entrepreneurship</p>
-                </div>
-                <div class="ratings">
-                    <p>Ratings: 4.0</p>
+                <div class="info">
+                    <div class="details">
+                        <p class="borrowed">Borrowed Out</p>
+                        <p class="title">Built to last</p>
+                        <p>Jim Collins, Jim I.porras - 2001</p>
+                        <p>Business, Entrepreneurship</p>
+                    </div>
+                    <div class="ratings-count">
+                        <div class="ratings">
+                            <p>Ratings: 4.0</p>
+                            <div class="stars">
+                                <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/black.png">
+                            </div>
+                        </div>
+                        <img src="assets/images/divider.png" class="divider">
+                        <div class="notification">
+                            <img src="assets/images/people.png" class="img"><p>31</p>
+                            <img src="assets/images/love.png" class="img"><p>29</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="card">
                 <img src="assets/images/the lean startup.png">
-                <div class="details">
-                    <p class="available">Available</p>
-                    <p class="title">The Lean Startup</p>
-                    <p>Eric Leis - 2005</p>
-                    <p>Motivational</p>
-                </div>
-                <div class="ratings">
-                    <p>Ratings: 4.0</p>
+                <div class="info">
+                    <div class="details">
+                        <p class="available">Available</p>
+                        <p class="title">The Lean Startup</p>
+                        <p>Eric Leis - 2005</p>
+                        <p>Motivational</p>
+                    </div>
+                    <div class="ratings-count">
+                        <div class="ratings">
+                            <p>Ratings: 4.0</p>
+                            <div class="stars">
+                                <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/black.png">
+                            </div>
+                        </div>
+                        <img src="assets/images/divider.png" class="divider">
+                        <div class="notification">
+                            <img src="assets/images/people.png" class="img"><p>31</p>
+                            <img src="assets/images/love.png" class="img"><p>29</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="card">
                 <img src="assets/images/effective python.png">
-                <div class="details">
-                    <p class="available">Available</p>
-                    <p class="title">The Effective engineer</p>
-                    <p>Diomodis Spinelli</p>
-                    <p>Motivational</p>
-                </div>
-                <div class="ratings">
-                    <p>Ratings: 4.0</p>
+                <div class="info">
+                    <div class="details">
+                        <p class="available">Available</p>
+                        <p class="title">Effective python</p>
+                        <p>Diomodis Spinelli</p>
+                        <p>Motivational</p>
+                    </div>
+                    <div class="ratings-count">
+                        <div class="ratings">
+                            <p>Ratings: 4.0</p>
+                            <div class="stars">
+                                <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/black.png">
+                            </div>
+                        </div>
+                        <img src="assets/images/divider.png" class="divider">
+                        <div class="notification">
+                            <img src="assets/images/people.png" class="img"><p>31</p>
+                            <img src="assets/images/love.png" class="img"><p>29</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="card">
                 <img src="assets/images/big magic.png">
-                <div class="details">
-                    <p class="available"> Available</p>
-                    <p class="title">Big magic</p>
-                    <p>Elizabeth Gilbert - 2014</p>
-                    <p>Motivational</p>
-                </div>
-                <div class="ratings">
-                    <p>Ratings: 4.0</p>
+                <div class="info">
+                    <div class="details">
+                        <p class="available"> Available</p>
+                        <p class="title">Big magic</p>
+                        <p>Elizabeth Gilbert - 2014</p>
+                        <p>Motivational</p>
+                    </div>
+                    <div class="ratings-count">
+                        <div class="ratings">
+                            <p>Ratings: 4.0</p>
+                            <div class="stars">
+                                <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/Shape.jpg"> <img src="assets/images/black.png">
+                            </div>
+                        </div>
+                        <img src="assets/images/divider.png" class="divider">
+                        <div class="notification">
+                            <img src="assets/images/people.png" class="img"><p>31</p>
+                            <img src="assets/images/love.png" class="img"><p>29</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
