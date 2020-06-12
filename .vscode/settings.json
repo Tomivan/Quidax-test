@@ -1,0 +1,5 @@
+{
+    "search.exclude": {
+        ".DS_Store": true
+    }
+}
