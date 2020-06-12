@@ -10,7 +10,7 @@ function search() {
         } 
         else { 
             x[i].style.display="card"; 
-            section.style.display = "none";
+            // section.style.display = "none";
                              
         } 
     } 
@@ -21,12 +21,18 @@ function showSidebar() {
     const nav = document.querySelector('.combined');
     const arrow = document.querySelector('.arrow');
 
-    if(bar.style.display === 'none') {
-        bar.style.display = 'block';
+    if(bar.style.width === '0') {
+        bar.style.width = '20vw';
         nav.style.display = 'none';
+        arrow.style.display = 'block';
     }
     else {
-        bar.style.display = 'none';
+        bar.style.width = '0';
         nav.style.display = 'block';
+        arrow.style.display = 'none';
     }
+}
+
+function closeSidebar() {
+
 }
